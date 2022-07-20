@@ -5,20 +5,18 @@ col_list = ['date','lib_dep','tx_pos','tx_incid','TO','R','hosp','rea','rad','re
 
 df = pd.read_csv('table-indicateurs-open-data-dep-2022-07-19-19h00.csv', sep=',', usecols=col_list, encoding='utf-8')
 tab_herault = df.loc[(df["date"]>"2021-12-31") & (df["date"]<"2022-07-17") & (df["lib_dep"] == "Hérault"),:]
-print('Hérault :', tab_herault)
-
 tab_finistere = df.loc[(df["date"]>"2021-12-31") & (df["date"]<"2022-07-17") & (df["lib_dep"]=="Finistère"),:]
-print('Finistère :', tab_finistere)
 
 plt.scatter(tab_herault.date,tab_herault.tx_incid, c="red", s=2)
-plt.title('HERAULT')
-plt.xlabel('DATE')
-plt.ylabel("Taux d'incidence en %")
+plt.title("Taux d'incidence en ‰ dans l'HERAULT par jour")
+plt.xlim("2022-01-01","2022-07-16")
+plt.xlabel('Date du jour')
+plt.ylabel("Taux d'incidence en ‰")
 plt.show()
 
 plt.scatter(tab_finistere.date,tab_finistere.tx_incid, c="black", s=2)
 plt.title('FINISTERE')
-plt.xlabel('DATE')
+plt.xlabel('Date du jour')
 plt.ylabel("Taux d'incidence en %")
 plt.show()
 
@@ -30,7 +28,7 @@ y2 = tab_herault.hosp
 plt.bar(x, y2, width= 0.8, color= "#EDFF91")
 plt.bar(x, y1, width = 0.8, color = "#3ED8C9")
 plt.title('HERAULT')
-plt.xlabel('DATE')
+plt.xlabel('Date du jour')
 plt.ylabel("Nb Réanimation et Nb Hospitalisation")
 plt.show()
 
@@ -40,6 +38,6 @@ y2 = tab_finistere.hosp
 plt.bar(x, y2, width= 0.8, color= "#EDFF91")
 plt.bar(x, y1, width = 0.8, color = "#3ED8C9")
 plt.title('FINISTERE')
-plt.xlabel('DATE')
 plt.ylabel("Nb Réanimation et Nb Hospitalisation")
+plt.xlabel('Date du jour')
 plt.show()
