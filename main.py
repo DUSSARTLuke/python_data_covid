@@ -21,3 +21,25 @@ plt.title('FINISTERE')
 plt.xlabel('DATE')
 plt.ylabel("Taux d'incidence en %")
 plt.show()
+
+
+x = tab_herault.date
+y1 = tab_herault.rea
+y2 = tab_herault.hosp
+
+plt.bar(x, y2, width= 0.8, color= "#EDFF91")
+plt.bar(x, y1, width = 0.8, color = "#3ED8C9")
+plt.title('HERAULT')
+plt.xlabel('DATE')
+plt.ylabel("Nb Réanimation et Nb Hospitalisation")
+plt.show()
+
+y1 = tab_finistere.rea
+y2 = tab_finistere.hosp
+
+plt.bar(x, y2, width= 0.8, color= "#EDFF91")
+plt.bar(x, y1, width = 0.8, color = "#3ED8C9")
+plt.title('FINISTERE')
+plt.xlabel('DATE')
+plt.ylabel("Nb Réanimation et Nb Hospitalisation")
+plt.show()
