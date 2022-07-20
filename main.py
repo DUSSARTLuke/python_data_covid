@@ -10,13 +10,13 @@ print('Hérault :', tab_herault)
 tab_finistere = df.loc[(df["date"]>"2021-12-31") & (df["date"]<"2022-07-17") & (df["lib_dep"]=="Finistère"),:]
 print('Finistère :', tab_finistere)
 
-plt.bar(tab_herault.date,tab_herault.tx_incid)
+plt.scatter(tab_herault.date,tab_herault.tx_incid, c="red", s=2)
 plt.title('HERAULT')
 plt.xlabel('DATE')
 plt.ylabel("Taux d'incidence en %")
 plt.show()
 
-plt.bar(tab_finistere.date,tab_finistere.tx_incid)
+plt.scatter(tab_finistere.date,tab_finistere.tx_incid, c="black", s=2)
 plt.title('FINISTERE')
 plt.xlabel('DATE')
 plt.ylabel("Taux d'incidence en %")
