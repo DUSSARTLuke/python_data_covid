@@ -8,16 +8,10 @@ tab_herault = df.loc[(df["date"]>"2021-12-31") & (df["date"]<"2022-07-17") & (df
 tab_finistere = df.loc[(df["date"]>"2021-12-31") & (df["date"]<"2022-07-17") & (df["lib_dep"]=="Finistère"),:]
 
 plt.scatter(tab_herault.date,tab_herault.tx_incid, c="red", s=2)
-plt.title("Taux d'incidence en ‰ dans l'HERAULT par jour")
-plt.xlim("2022-01-01","2022-07-16")
+plt.scatter(tab_finistere.date,tab_finistere.tx_incid, c="black", s=2)
+plt.title("Taux d'incidence en ‰ dans l'Hérault et le Finistère par jour")
 plt.xlabel('Date du jour')
 plt.ylabel("Taux d'incidence en ‰")
-plt.show()
-
-plt.scatter(tab_finistere.date,tab_finistere.tx_incid, c="black", s=2)
-plt.title('FINISTERE')
-plt.xlabel('Date du jour')
-plt.ylabel("Taux d'incidence en %")
 plt.show()
 
 
