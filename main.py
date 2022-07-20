@@ -4,4 +4,6 @@ col_list = ['date','lib_dep','tx_pos','tx_incid','TO','R','hosp','rea','rad','re
 
 df = pd.read_csv('table-indicateurs-open-data-dep-2022-07-19-19h00.csv', sep=',', usecols=col_list, encoding='utf-8')
 
-print('Nombre d éléves :', (df.describe()))
+print('Hérault :', (df.loc[(df["date"]>"2021-12-31") & (df["lib_dep"] == "Hérault"),:]))
+
+print('Finistère :', (df.loc[(df["date"]>"2021-12-31") & (df["lib_dep"]=="Finistère"),:]))
