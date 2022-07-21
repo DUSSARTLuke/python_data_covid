@@ -7,32 +7,36 @@ df = pd.read_csv('table-indicateurs-open-data-dep-2022-07-19-19h00.csv', sep=','
 tab_herault = df.loc[(df["date"]>"2021-12-31") & (df["date"]<"2022-07-17") & (df["lib_dep"] == "Hérault"),:]
 tab_finistere = df.loc[(df["date"]>"2021-12-31") & (df["date"]<"2022-07-17") & (df["lib_dep"]=="Finistère"),:]
 
-plt.scatter(tab_herault.date,tab_herault.tx_incid, c="red", s=2, label="Hérault")
-plt.scatter(tab_finistere.date,tab_finistere.tx_incid, c="black", s=2, label="Finistère")
+xHerault = pd.to_datetime(pd.Series(tab_herault.date))
+xFinistere = pd.to_datetime(pd.Series(tab_finistere.date))
+print(xHerault)
+
+plt.scatter(xHerault,tab_herault.tx_incid, c="red", s=2, label="Hérault")
+plt.scatter(xFinistere,tab_finistere.tx_incid, c="black", s=2, label="Finistère")
 plt.title("Taux d'incidence en ‰ dans l'Hérault et le Finistère par jour")
 plt.xlabel('Date du jour')
 plt.ylabel("Taux d'incidence en ‰")
 plt.legend()
 plt.show()
 
-
-x = tab_herault.date
 y1 = tab_herault.rea
 y2 = tab_herault.hosp
 
-plt.bar(x, y2, width= 0.8, color= "#EDFF91")
-plt.bar(x, y1, width = 0.8, color = "#3ED8C9")
-plt.title('HERAULT')
-plt.xlabel('Date du jour')
+plt.bar(xHerault, y2, width= 0.8, color= "#EDFF91", label="Nombre de patients en réanimation ou en soins intensifs")
+plt.bar(xHerault, y1, width = 0.8, color = "#3ED8C9", label="Nombre de patients hospitalisés pour COVID-19")
+plt.title("Nombre de patients en réanimation et hospitalisés dans l'Hérault")
 plt.ylabel("Nb Réanimation et Nb Hospitalisation")
+plt.xlabel('Date du jour')
+plt.legend()
 plt.show()
 
 y1 = tab_finistere.rea
 y2 = tab_finistere.hosp
 
-plt.bar(x, y2, width= 0.8, color= "#EDFF91")
-plt.bar(x, y1, width = 0.8, color = "#3ED8C9")
-plt.title('FINISTERE')
+plt.bar(xFinistere, y2, width= 0.8, color= "#EDFF91", label="Nombre de patients en réanimation ou en soins intensifs")
+plt.bar(xFinistere, y1, width = 0.8, color = "#3ED8C9", label="Nombre de patients hospitalisés pour COVID-19")
+plt.title("Nombre de patients en réanimation et hospitalisés dans le Finistère")
 plt.ylabel("Nb Réanimation et Nb Hospitalisation")
 plt.xlabel('Date du jour')
+plt.legend()
 plt.show()
