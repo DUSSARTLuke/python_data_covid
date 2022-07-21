@@ -31,16 +31,17 @@ ax1.bar(xHerault, y2H, width= 0.8, color= "#EDFF91", label="Intensive care unit 
 ax1.bar(xHerault, y1H, width = 0.8, color = "#3ED8C9", label="Hospitalized covid patients")
 ax1.legend()
 
-
 ax2.bar(xFinistere, y2F, width= 0.8, color= "#EDFF91", label="Intensive care unit admission")
 ax2.bar(xFinistere, y1F, width = 0.8, color = "#3ED8C9", label="Hospitalized covid patients")
 ax2.legend()
 
 ax1.set_xlabel('Date')
+ax2.set_xlabel('Date')
+
 ax1.set_ylabel("Intensive care and hospitalized units admission rates")
 ax2.set_ylabel("Intensive care and hospitalized units admission rates")
 
-ax1.set_title("Intensive care and hospitalized units admission rates in Hérault")
-ax2.set_title("Intensive care and hospitalized units admission rates in Finistère")
+ax1.set_title("Hérault")
+ax2.set_title("Finistère")
 
 plt.show()
