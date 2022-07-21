@@ -29,12 +29,18 @@ fig.suptitle("Daily intensive care and hospitalized units admission rates in Hé
 #fig.suptitle('Horizontally stacked subplots')
 ax1.bar(xHerault, y2H, width= 0.8, color= "#EDFF91", label="Intensive care unit admission")
 ax1.bar(xHerault, y1H, width = 0.8, color = "#3ED8C9", label="Hospitalized covid patients")
-plt.ylabel("Intensive care and hospitalized units admission rates")
-plt.xlabel('Date')
+ax1.legend()
+
+
 ax2.bar(xFinistere, y2F, width= 0.8, color= "#EDFF91", label="Intensive care unit admission")
 ax2.bar(xFinistere, y1F, width = 0.8, color = "#3ED8C9", label="Hospitalized covid patients")
-plt.ylabel("Intensive care and hospitalized units admission rates")
-plt.xlabel('Date')
+ax2.legend()
 
-plt.legend()
+ax1.set_xlabel('Date')
+ax1.set_ylabel("Intensive care and hospitalized units admission rates")
+ax2.set_ylabel("Intensive care and hospitalized units admission rates")
+
+ax1.set_title("Intensive care and hospitalized units admission rates in Hérault")
+ax2.set_title("Intensive care and hospitalized units admission rates in Finistère")
+
 plt.show()
