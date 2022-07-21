@@ -27,11 +27,11 @@ y2F = tab_finistere.hosp
 fig, (ax1, ax2) = plt.subplots(1, 2, sharex=True, sharey=True)
 fig.suptitle("Daily intensive care and hospitalized units admission rates in Hérault and in Finistère")
 #fig.suptitle('Horizontally stacked subplots')
-ax1.bar(xHerault, y2H, width= 0.8, color= "#EDFF91", label="Intensive care unit admission")
-ax1.bar(xHerault, y1H, width = 0.8, color = "#3ED8C9", label="Hospitalized covid patients")
+ax1.bar(xHerault, y2H, width= 0.8, color= "#EDFF91", label="Hospitalized covid patients")
+ax1.bar(xHerault, y1H, width = 0.8, color = "#3ED8C9", label="Intensive care unit admission")
 ax1.legend()
 
-ax2.bar(xFinistere, y2F, width= 0.8, color= "#EDFF91", label="Intensive care unit admission")
+ax2.bar(xFinistere, y2F, width= 0.8, color= "#EDFF91", label="Hospitalized covid patients")
 ax2.bar(xFinistere, y1F, width = 0.8, color = "#3ED8C9", label="Hospitalized covid patients")
 ax2.legend()
 
@@ -51,9 +51,11 @@ col_list_temp = ["Date","Température (°C)","communes (name)","department (name
 
 df_herault = pd.read_csv('herault.csv', sep=';', usecols=col_list_temp, encoding='utf-8')
 df_finistere = pd.read_csv('finistere.csv', sep=';', usecols=col_list_temp, encoding='utf-8')
+print('test', df_herault)
 
 tab_temp_herault = df_herault.loc[(df_herault["Date"]>"2021-12-31") & (df_herault["Date"]<"2022-07-17"),:]
 tab_temp_finistere = df_finistere.loc[(df_finistere["Date"]>"2021-12-31") & (df_finistere["Date"]<"2022-07-17"),:]
+
 xTempHerault = pd.to_datetime(pd.Series(tab_temp_herault.Date))
 xTempFinistere = pd.to_datetime(pd.Series(tab_temp_finistere.Date))
 
