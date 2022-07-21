@@ -9,13 +9,12 @@ tab_finistere = df.loc[(df["date"]>"2021-12-31") & (df["date"]<"2022-07-17") & (
 
 xHerault = pd.to_datetime(pd.Series(tab_herault.date))
 xFinistere = pd.to_datetime(pd.Series(tab_finistere.date))
-print(xHerault)
 
 plt.scatter(xHerault,tab_herault.tx_incid, c="red", s=2, label="Hérault")
 plt.scatter(xFinistere,tab_finistere.tx_incid, c="black", s=2, label="Finistère")
-plt.title("Taux d'incidence en ‰ dans l'Hérault et le Finistère par jour")
-plt.xlabel('Date du jour')
-plt.ylabel("Taux d'incidence en ‰")
+plt.title("Daily incidence rate in ‰ in Hérault and Finistère")
+plt.xlabel("Date")
+plt.ylabel("Incidence rate in ‰")
 plt.legend()
 plt.show()
 
@@ -25,19 +24,17 @@ y2H = tab_herault.hosp
 y1F = tab_finistere.rea
 y2F = tab_finistere.hosp
 
-
 fig, (ax1, ax2) = plt.subplots(1, 2, sharex=True, sharey=True)
-fig.suptitle("Nombre de patients en réanimation et hospitalisés dans le Finistère")
+fig.suptitle("Daily intensive care and hospitalized units admission rates in Hérault and in Finistère")
 #fig.suptitle('Horizontally stacked subplots')
-ax1.bar(xHerault, y2H, width= 0.8, color= "#EDFF91", label="Nombre de patients en réanimation ou en soins intensifs")
-ax1.bar(xHerault, y1H, width = 0.8, color = "#3ED8C9", label="Nombre de patients hospitalisés pour COVID-19")
-plt.ylabel("Nb Réanimation et Nb Hospitalisation")
-plt.xlabel('Date du jour')
-ax2.bar(xFinistere, y2F, width= 0.8, color= "#EDFF91", label="Nombre de patients en réanimation ou en soins intensifs")
-ax2.bar(xFinistere, y1F, width = 0.8, color = "#3ED8C9", label="Nombre de patients hospitalisés pour COVID-19")
-plt.ylabel("Nb Réanimation et Nb Hospitalisation")
-plt.xlabel('Date du jour')
-
+ax1.bar(xHerault, y2H, width= 0.8, color= "#EDFF91", label="Intensive care unit admission")
+ax1.bar(xHerault, y1H, width = 0.8, color = "#3ED8C9", label="Hospitalized covid patients")
+plt.ylabel("Intensive care and hospitalized units admission rates")
+plt.xlabel('Date')
+ax2.bar(xFinistere, y2F, width= 0.8, color= "#EDFF91", label="Intensive care unit admission")
+ax2.bar(xFinistere, y1F, width = 0.8, color = "#3ED8C9", label="Hospitalized covid patients")
+plt.ylabel("Intensive care and hospitalized units admission rates")
+plt.xlabel('Date')
 
 plt.legend()
 plt.show()
