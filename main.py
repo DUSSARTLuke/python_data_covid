@@ -19,24 +19,25 @@ plt.ylabel("Taux d'incidence en ‰")
 plt.legend()
 plt.show()
 
-y1 = tab_herault.rea
-y2 = tab_herault.hosp
+y1H = tab_herault.rea
+y2H = tab_herault.hosp
 
-plt.bar(xHerault, y2, width= 0.8, color= "#EDFF91", label="Nombre de patients en réanimation ou en soins intensifs")
-plt.bar(xHerault, y1, width = 0.8, color = "#3ED8C9", label="Nombre de patients hospitalisés pour COVID-19")
-plt.title("Nombre de patients en réanimation et hospitalisés dans l'Hérault")
+y1F = tab_finistere.rea
+y2F = tab_finistere.hosp
+
+
+fig, (ax1, ax2) = plt.subplots(1, 2, sharex=True, sharey=True)
+fig.suptitle("Nombre de patients en réanimation et hospitalisés dans le Finistère")
+#fig.suptitle('Horizontally stacked subplots')
+ax1.bar(xHerault, y2H, width= 0.8, color= "#EDFF91", label="Nombre de patients en réanimation ou en soins intensifs")
+ax1.bar(xHerault, y1H, width = 0.8, color = "#3ED8C9", label="Nombre de patients hospitalisés pour COVID-19")
 plt.ylabel("Nb Réanimation et Nb Hospitalisation")
 plt.xlabel('Date du jour')
-plt.legend()
-plt.show()
-
-y1 = tab_finistere.rea
-y2 = tab_finistere.hosp
-
-plt.bar(xFinistere, y2, width= 0.8, color= "#EDFF91", label="Nombre de patients en réanimation ou en soins intensifs")
-plt.bar(xFinistere, y1, width = 0.8, color = "#3ED8C9", label="Nombre de patients hospitalisés pour COVID-19")
-plt.title("Nombre de patients en réanimation et hospitalisés dans le Finistère")
+ax2.bar(xFinistere, y2F, width= 0.8, color= "#EDFF91", label="Nombre de patients en réanimation ou en soins intensifs")
+ax2.bar(xFinistere, y1F, width = 0.8, color = "#3ED8C9", label="Nombre de patients hospitalisés pour COVID-19")
 plt.ylabel("Nb Réanimation et Nb Hospitalisation")
 plt.xlabel('Date du jour')
+
+
 plt.legend()
 plt.show()
