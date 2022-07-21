@@ -18,6 +18,8 @@ df_finistere = pd.read_csv('finistere.csv', sep=';', usecols=col_list_temp, enco
 
 tab_temp_herault = df_herault.loc[(df_herault["Date"]>"2021-12-31") & (df_herault["Date"]<"2022-07-17"),:]
 tab_temp_finistere = df_finistere.loc[(df_finistere["Date"]>"2021-12-31") & (df_finistere["Date"]<"2022-07-17"),:]
+xTempHerault = pd.to_datetime(pd.Series(tab_temp_herault.Date))
+xTempFinistere = pd.to_datetime(pd.Series(tab_temp_finistere.Date))
 
 xHerault = pd.to_datetime(pd.Series(tab_herault.date))
 xFinistere = pd.to_datetime(pd.Series(tab_finistere.date))
